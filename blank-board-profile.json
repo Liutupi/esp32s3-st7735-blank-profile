@@ -1,0 +1,68 @@
+{
+  "profile_name": "esp32s3-st7735-blank-profile",
+  "purpose": "Blank hardware baseline only. No application firmware features are included.",
+  "recommended_workspace_root": "C:\\espbuild",
+  "idf_root": "C:\\Users\\Administrator\\esp-idf",
+  "target": {
+    "chip": "esp32s3",
+    "observed_revision": "QFN56 rev v0.2",
+    "usb_mode": "USB-Serial/JTAG",
+    "psram": "8MB",
+    "flash_size": "16MB",
+    "known_serial_port": "COM4"
+  },
+  "baseline_kconfig": {
+    "board_if_available": "CONFIG_BOARD_TYPE_BREAD_COMPACT_WIFI_LCD=y",
+    "lcd": "CONFIG_LCD_ST7735_128X160=y",
+    "partition_table": "CONFIG_PARTITION_TABLE_CUSTOM=y"
+  },
+  "lcd": {
+    "type": "ST7735_128X160",
+    "width": 128,
+    "height": 160,
+    "mirror_x": true,
+    "mirror_y": true,
+    "swap_xy": false,
+    "invert_color": false,
+    "rgb_order": "RGB",
+    "offset_x": 0,
+    "offset_y": 0,
+    "spi_mode": 0
+  },
+  "pins": {
+    "buttons": {
+      "boot": "GPIO0",
+      "secondary": "GPIO39"
+    },
+    "display": {
+      "backlight": "GPIO42",
+      "mosi": "GPIO47",
+      "clk": "GPIO21",
+      "dc": "GPIO40",
+      "rst": "GPIO45",
+      "cs": "GPIO41"
+    },
+    "audio_simplex": {
+      "mic_ws": "GPIO4",
+      "mic_sck": "GPIO5",
+      "mic_din": "GPIO6",
+      "speaker_dout": "GPIO7",
+      "speaker_bclk": "GPIO15",
+      "speaker_lrck": "GPIO16"
+    },
+    "led": "GPIO48"
+  },
+  "do_not_use": [
+    {
+      "pin": "GPIO40",
+      "reason": "LCD DC pin"
+    }
+  ],
+  "flash": {
+    "default_app_offset": "0x100000",
+    "baud": 460800,
+    "flash_mode": "dio",
+    "flash_freq": "80m",
+    "flash_size": "16MB"
+  }
+}
